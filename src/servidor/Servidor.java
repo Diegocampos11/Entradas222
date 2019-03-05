@@ -1,5 +1,7 @@
 package servidor;
 
+import java.net.ServerSocket;
+import java.net.Socket;
 import java.util.ArrayList;
 
 import clases.Espectaculo;
@@ -14,7 +16,8 @@ public class Servidor {
 		GeneradorEspectaculos creara el socket
 	 * */
 
-	public static final int PUERTO = 4321;
+	public static final int PUERTO = 4321;//puerto para administrador
+	public static final int PUERTOV = 4322;//puerto para venta de entradas
 	public static ArrayList<Espectaculo> listaEspectaculo;
 	private static GeneradorEspectaculos hiloGenerador;
 
@@ -23,6 +26,28 @@ public class Servidor {
 		listaEspectaculo = new ArrayList<Espectaculo>();
 		hiloGenerador.start();
 		try {
+			ServerSocket servSock = new ServerSocket( PUERTO );
+			System.out.println("Esperando cliente!!");
+			while ( true ) {
+				Socket socket = servSock.accept();
+				VentaEntrada myt = new VentaEntrada( socket );
+				myt.start();
+			}
+			/*{
+				
+				ObjectInputStream entrada = new ObjectInputStream( socket.getInputStream() );
+				Object objetoRecibido = null;
+				if ( (objetoRecibido = entrada.readObject()) instanceof Mensaje ) {
+					Mensaje msj = (Mensaje) objetoRecibido;//posible error
+					System.out.println( msj );
+				}
+				entrada.close();
+			}*/
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		/*try {
 			String s = new String();
 			synchronized ( s ) {
 				s.wait();
@@ -30,7 +55,7 @@ public class Servidor {
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
 	}
 
 }

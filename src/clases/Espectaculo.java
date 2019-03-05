@@ -34,7 +34,7 @@ public class Espectaculo {
 		int idSecuancialXEvento = 0;
 		for ( int i = 0; i < numFilas; i++ ) {
 			for ( int ii = 0; ii < numButacasPorFila; ii++ ) 
-				listaEntradas.add( new Entrada( ++idSecuancialXEvento, i + 1, ii + 1, new Date(), null, this ) );
+				listaEntradas.add( new Entrada( ++idSecuancialXEvento, i + 1, ii + 1, new Date(), null, this, null ) );
 		}
 	}
 	

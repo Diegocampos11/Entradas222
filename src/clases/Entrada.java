@@ -10,9 +10,10 @@ public class Entrada implements Serializable{
 	private Date fechaGeneracion;
 	private Date fechaVenta;
 	private Espectaculo evento;
+	private byte[] hash;
 	
 	public Entrada(Integer idSecuencial, Integer fila, Integer butaca, Date fechaGeneracion, Date fechaVenta,
-			Espectaculo evento) {
+			Espectaculo evento, byte[] hash) {
 		super();
 		this.idSecuencial = idSecuencial;
 		this.fila = fila;
@@ -20,6 +21,7 @@ public class Entrada implements Serializable{
 		this.fechaGeneracion = fechaGeneracion;
 		this.fechaVenta = fechaVenta;
 		this.evento = evento;
+		this.hash = hash;
 	}
 	
 	@Override
@@ -62,5 +64,13 @@ public class Entrada implements Serializable{
 	}
 	public void setEvento(Espectaculo evento) {
 		this.evento = evento;
+	}
+
+	public byte[] getHash() {
+		return hash;
+	}
+
+	public void setHash(byte[] hash) {
+		this.hash = hash;
 	}
 }
