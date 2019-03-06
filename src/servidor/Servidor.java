@@ -26,24 +26,14 @@ public class Servidor {
 		listaEspectaculo = new ArrayList<Espectaculo>();
 		hiloGenerador.start();
 		try {
-			ServerSocket servSock = new ServerSocket( PUERTO );
-			System.out.println("Esperando cliente!!");
+			ServerSocket servSock = new ServerSocket( PUERTOV );
 			while ( true ) {
+				System.out.println("Esperando cliente...");
 				Socket socket = servSock.accept();
 				VentaEntrada myt = new VentaEntrada( socket );
 				myt.start();
 			}
-			/*{
-				
-				ObjectInputStream entrada = new ObjectInputStream( socket.getInputStream() );
-				Object objetoRecibido = null;
-				if ( (objetoRecibido = entrada.readObject()) instanceof Mensaje ) {
-					Mensaje msj = (Mensaje) objetoRecibido;//posible error
-					System.out.println( msj );
-				}
-				entrada.close();
-			}*/
-		} catch (IOException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
