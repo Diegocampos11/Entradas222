@@ -1,0 +1,6 @@
+-si el usuario al confirmar la compra de la entrada ingresa "no" entonces volverá desde el principio a seleccionar el espectaculo
+-si el usuario escoje una butaca que esta en espera de confirmacion entonces otro usuario que ha seleccionado la misma entrada se queda esperando ya que esta synchronized
+-ingreso de datos de buena fé XD
+	solo comprobación de si o no en confirmacion xd
+	
+-codificacion del projecto ISO-8859-1 blabla xd

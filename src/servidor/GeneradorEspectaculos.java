@@ -12,8 +12,6 @@ import javax.net.ssl.SSLServerSocket;
 import javax.net.ssl.SSLServerSocketFactory;
 import javax.net.ssl.SSLSocket;
 
-import clases.Espectaculo;
-
 public class GeneradorEspectaculos extends Thread {
 	@Override
 	public void run() {
@@ -25,7 +23,7 @@ public class GeneradorEspectaculos extends Thread {
 		try {
 			SSLServerSocket servSock = (SSLServerSocket) fabricaServSocket.createServerSocket( Servidor.PUERTO );
 			while ( true ) {
-				System.out.println("Servidor esperando conexión...");
+				System.out.println("Esperando administrador...");//conexion de un administrador
 				SSLSocket sock = (SSLSocket) servSock.accept();
 				//cliente conectado
 				System.out.println("Nuevo administrador conectado...");
